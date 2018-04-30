@@ -2,13 +2,13 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 // allows me to draw to canvas
 
-var x = (canvas.width / 2) + Math.floor(Math.random() * 21) - 10; 		 // change the starting ball position with those numbers
-var y = (canvas.height - 30) + Math.floor(Math.random() * 21) - 10 - 30; // aswell
-var dy = -2; 													 		 // var dx and dy values change the speed of the ball
+var x = (canvas.width / 2) + Math.floor(Math.random() * 21) - 10;	// change the starting ball position with those numbers
+var y = (canvas.height - 30) + Math.floor(Math.random() * 21) - 10 - 30;	// aswell
+var dy = -2;	// var dx and dy values change the speed of the ball
 var dx = 2;
 var ballRadius = 15;
 var paddleHeight = 10;
-var paddleWidth = 100; 													 // if difficulty is the case
+var paddleWidth = 100;	// if difficulty is the case
 var paddleX = (canvas.width - paddleWidth) / 2;
 var rightPressed = false;
 var leftPressed = false;
@@ -40,8 +40,8 @@ function initBricks() {
 }
 
 
-document.addEventListener("keydown", keyDownHandler);				// push a key will call a function 
-document.addEventListener("keyup", keyUpHandler);				 	// release a key will call also a function 
+document.addEventListener("keydown", keyDownHandler);	// push a key will call a function 
+document.addEventListener("keyup", keyUpHandler);	// release a key will call also a function 
 
 function drawBricks() {
 	for (c = 0; c < brickColumnCount; c++) {
@@ -63,10 +63,10 @@ function drawBricks() {
 }
 
 function keyDownHandler(e) {
-	if (e.keyCode == 39) {						// 39 is the right cursor key
+	if (e.keyCode == 39) {	// 39 is the right cursor key
 		rightPressed = true;
 	}
-	else if (e.keyCode == 37) { 				// 37 is the left cursor key
+	else if (e.keyCode == 37) {	// 37 is the left cursor key
 		leftPressed = true;
 	}
 }
@@ -148,7 +148,7 @@ function collisionDetection() {
 function drawScore() {
 	ctx.font = "16px Arial";
 	ctx.fillStyle = "#0095DD";
-	ctx.fillText("Score: " + score, 8, 20); 						// x, y position of text
+	ctx.fillText("Score: " + score, 8, 20);	// x, y position of text
 }
 
 function drawLives() {
@@ -161,7 +161,7 @@ function drawLives() {
 function drawLevel() {
 	ctx.font = "16px Arial";
 	ctx.fillStyle = "#0095DD";
-	ctx.fillText("Level: " + level, 210, 20); 						//	x, y position of text
+	ctx.fillText("Level: " + level, 210, 20); // x, y position of text
 }
 
 function draw() {
@@ -177,8 +177,8 @@ function draw() {
 	collisionDetection();
 
 	//top and bottom edge
-	if (y + dy < ballRadius) { 										 //	if it gets touched the up or down border
-		dy = -dy; 							 						 //	reverse the ball
+	if (y + dy < ballRadius) {	// if it gets touched the up or down border
+		dy = -dy; //	reverse the ball
 	} else if (y + dy > canvas.height - ballRadius) {
 		if (x > paddleX && x < paddleX + paddleWidth) {
 			dy = -dy;
@@ -197,8 +197,8 @@ function draw() {
 	}
 
 	//left and right edge
-	if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {  //if it touch the left or right border
-		dx = -dx;													  //reverse the ball
+	if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {	// if it touch the left or right border
+		dx = -dx;	// reverse the ball
 	}
 
 	if (rightPressed && paddleX < canvas.width - paddleWidth) {

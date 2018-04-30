@@ -2,13 +2,13 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 // allows me to draw to canvas
 
-var x = (canvas.width / 2) + Math.floor(Math.random() * 21) - 10; // change the starting ball position with those numbers
-var y = (canvas.height - 30) + Math.floor(Math.random() * 21) - 10 - 30; //aswell
-var dy = -2; 													  // var dx and dy values change the speed of the ball
+var x = (canvas.width / 2) + Math.floor(Math.random() * 21) - 10; 		 // change the starting ball position with those numbers
+var y = (canvas.height - 30) + Math.floor(Math.random() * 21) - 10 - 30; // aswell
+var dy = -2; 													 		 // var dx and dy values change the speed of the ball
 var dx = 2;
 var ballRadius = 15;
 var paddleHeight = 10;
-var paddleWidth = 100; //if difficulty is the case
+var paddleWidth = 100; 													 // if difficulty is the case
 var paddleX = (canvas.width - paddleWidth) / 2;
 var rightPressed = false;
 var leftPressed = false;
@@ -40,7 +40,7 @@ function initBricks() {
 }
 
 
-document.addEventListener("keydown", keyDownHandler);				//push a key will call a function 
+document.addEventListener("keydown", keyDownHandler);				// push a key will call a function 
 document.addEventListener("keyup", keyUpHandler);				 	// release a key will call also a function 
 
 function drawBricks() {
@@ -48,7 +48,7 @@ function drawBricks() {
 		for (r = 0; r < brickRowCount; r++) {
 			if (bricks[c][r].status == 1) {
 				var brickX = (c * (brickWidth + brickPadding)) + brickOffsetLeft;
-				var brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop; 
+				var brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop;
 				bricks[c][r].x = 0;
 				bricks[c][r].x = brickX;
 				bricks[c][r].y = brickY;
@@ -63,10 +63,10 @@ function drawBricks() {
 }
 
 function keyDownHandler(e) {
-	if (e.keyCode == 39) {											// 39 is the right cursor key
+	if (e.keyCode == 39) {						// 39 is the right cursor key
 		rightPressed = true;
 	}
-	else if (e.keyCode == 37) { 									// 37 is the left cursor key
+	else if (e.keyCode == 37) { 				// 37 is the left cursor key
 		leftPressed = true;
 	}
 }
@@ -154,7 +154,7 @@ function drawScore() {
 function drawLives() {
 	ctx.font = "16px Arial";
 	ctx.fillStyle = "#0095DD";
-	ctx.fillText("Lives: " + lives, canvas.width - 65, 20) 
+	ctx.fillText("Lives: " + lives, canvas.width - 65, 20)
 	//	offset 65px from the right of the canvas and set up the height so it is inline with the score above
 }
 
